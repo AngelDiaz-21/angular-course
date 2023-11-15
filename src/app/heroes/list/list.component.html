@@ -1,0 +1,24 @@
+<p>list works!</p>
+<h3>Listado de Héroes</h3>
+
+<!-- Primeramente esto no se mostrará ya que es false, esto se debe porque la propiedad deletedHero esta definida como un string vacío, pero al presionar el botón "Borrar último héroe" este valor cambia y a su vez muestra este div -->
+<div *ngIf="deletedHero; else nothingWasDelete ">
+  <h3>Héroe borrado<small class="text-danger"> {{ deletedHero }}</small></h3>
+</div>
+
+<!--Por defecto este template no se muestra, necesita un referencia para poder mostrarse y en este caso la referencia proviene del else -->
+<ng-template #nothingWasDelete>
+  <h3>No ha borrado nada</h3>
+</ng-template>
+
+<!-- En la condición se especifica que el botón se mostrará siempre y cuando el arreglo heroNames tenga un valor -->
+<button
+  *ngIf="heroNames.length>0"
+  (click)="removeLastHero()" class="btn btn-outline-danger">
+  Borrar último héroe
+</button>
+
+<ul class="mt-2 list-group">
+  <li *ngFor="let item of heroNames"
+      class="list-group-item">{{ item }}</li>
+</ul>
