@@ -1,0 +1,17 @@
+<h4>Agregar personaje</h4>
+<!-- En este caso se quiere trabajar con el submit del formulario, cuando el formulario es propagado para enviarse a un backend, se utiliza ngSubmit. Este también nos ayuda a que no se recargue el navegador web-->
+<form class="row" (ngSubmit)="emitCharacter()">
+  <!-- Uso del ngModel: Directiva de angular  -->
+  <!-- Los parentesis se asocian a los eventos -->
+  <!-- Los corchetes se asocian a un atributo -->
+  <!-- Sintaxis especial llamada como caja de banana: [()]. Los corchetes son la caja y los parentesis las bananas, entonces, estamos asociando un evento y un atributo al mismo tiempo -->
+  <input type="text" [(ngModel)] = "character.name" class="form-control mb-2" placeholder="Nombre" name="name">
+  <input type="number" [(ngModel)] = "character.power" class="form-control mb-2" placeholder="poder" name="poder">
+  <!-- No deberiamos de hacer clic en el botón para que funcione en el formulario, sino que esto se manejaria dentro de la etiqueta/elemento form-->
+  <!-- <button type="submit" class="btn btn-primary" (click)="emitCharacter()"> -->
+  <button type="submit" class="btn btn-primary">
+    Agregar
+  </button>
+<!-- Esto se conoce como pay json ? -->
+  <!-- <pre>{{ character | json }}</pre> -->
+</form>
