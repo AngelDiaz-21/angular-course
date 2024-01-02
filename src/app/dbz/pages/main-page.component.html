@@ -1,0 +1,14 @@
+<h1>DBZ Main Page</h1>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <dbz-list [characterList]="characters" (onDelete)="onDeleteCharacter($event)"></dbz-list>
+  </div>
+  <div class="col">
+    <!-- Cuando este componente emita en el componente padre main-page.component.ts va a ejecutar un método -->
+    <!-- characterOnNew es el nombre que se puso en el decorador -->
+    <!-- El componente padre (este) va a recibir el objeto que se esta emitiendo en el componente add-character, y la forma en que lo recibe es mediante $event, este es un nombre especifico de Angular  -->
+    <dbz-add-character (characterOnNew)="onNewCharacter($event)"></dbz-add-character>
+  </div>
+</div>
